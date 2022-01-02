@@ -1,0 +1,10 @@
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\bin\Debug\Final_CNPM.exe.config
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\bin\Debug\Final_CNPM.exe
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\bin\Debug\Final_CNPM.pdb
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\obj\Debug\Final_CNPM.csproj.AssemblyReference.cache
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\obj\Debug\Final_CNPM.Login.resources
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\obj\Debug\Final_CNPM.Properties.Resources.resources
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\obj\Debug\Final_CNPM.csproj.GenerateResource.cache
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\obj\Debug\Final_CNPM.csproj.CoreCompileInputs.cache
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\obj\Debug\Final_CNPM.exe
+C:\Users\NguyenKhanh\source\repos\Final_CNPM\Final_CNPM\obj\Debug\Final_CNPM.pdb
