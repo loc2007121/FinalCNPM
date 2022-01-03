@@ -1,0 +1,11 @@
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\bin\Debug\Final_CNPM.exe.config
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\bin\Debug\Final_CNPM.exe
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\bin\Debug\Final_CNPM.pdb
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.AssemblyReference.cache
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.Login.resources
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.Main.resources
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.Properties.Resources.resources
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.GenerateResource.cache
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.CoreCompileInputs.cache
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.exe
+F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.pdb

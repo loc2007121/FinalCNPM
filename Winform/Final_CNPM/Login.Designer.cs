@@ -35,6 +35,7 @@ namespace Final_CNPM
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblPMA = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUserName
@@ -92,6 +93,17 @@ namespace Final_CNPM
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // lblPMA
+            // 
+            this.lblPMA.AutoSize = true;
+            this.lblPMA.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPMA.Location = new System.Drawing.Point(90, 106);
+            this.lblPMA.Name = "lblPMA";
+            this.lblPMA.Size = new System.Drawing.Size(435, 32);
+            this.lblPMA.TabIndex = 6;
+            this.lblPMA.Text = "Product Management Application";
             // 
             // Login
             // 
@@ -99,6 +111,7 @@ namespace Final_CNPM
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 328);
             this.ControlBox = false;
+            this.Controls.Add(this.lblPMA);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.tbxPassword);
@@ -123,6 +136,7 @@ namespace Final_CNPM
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblPMA;
     }
 }
 
