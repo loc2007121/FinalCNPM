@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLiHangHoaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DAILY">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatKhau" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenDAILY" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="DienThoai" Type="nvarchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="HANGHOA">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenHang" Type="nvarchar" MaxLength="50" />
+    <Property Name="NhaCC" Type="nvarchar" MaxLength="50" />
+    <Property Name="DVT" Type="nvarchar" MaxLength="20" />
+    <Property Name="MaLoai" Type="nvarchar" MaxLength="5" />
+    <Property Name="HinhAnh" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="KETOAN">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quyen" Type="int" />
+  </EntityType>
+  <EntityType Name="LOAIHANG">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NHAPKHO">
+    <Key>
+      <PropertyRef Name="SoPhieuN" />
+    </Key>
+    <Property Name="SoPhieuN" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NgayNhap" Type="datetime" />
+    <Property Name="NguoiNhap" Type="nvarchar" MaxLength="50" />
+    <Property Name="LyDoNhap" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="NHAPKHO_CT">
+    <Key>
+      <PropertyRef Name="SoPhieuN" />
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="SoPhieuN" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="STT" Type="int" Nullable="false" />
+    <Property Name="MaHang" Type="nvarchar" MaxLength="10" />
+    <Property Name="SLNhap" Type="float" />
+    <Property Name="DGNhap" Type="money" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="XUATKHO">
+    <Key>
+      <PropertyRef Name="SoPhieuX" />
+    </Key>
+    <Property Name="SoPhieuX" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NgayXuat" Type="datetime" />
+    <Property Name="TenTKDaiLy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LyDoXuat" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="XUATKHO_CT">
+    <Key>
+      <PropertyRef Name="SoPhieuX" />
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="SoPhieuX" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="STT" Type="int" Nullable="false" />
+    <Property Name="MaHang" Type="nvarchar" MaxLength="10" />
+    <Property Name="SLXuat" Type="float" />
+    <Property Name="DGXuat" Type="money" />
+  </EntityType>
+  <Association Name="FK_HANGHOA_LOAIHANG">
+    <End Role="LOAIHANG" Type="Self.LOAIHANG" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIHANG">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="HANGHOA">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHAPKHO_CT_HANGHOA">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="0..1" />
+    <End Role="NHAPKHO_CT" Type="Self.NHAPKHO_CT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="NHAPKHO_CT">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHAPKHO_CT_NHAPKHO">
+    <End Role="NHAPKHO" Type="Self.NHAPKHO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NHAPKHO_CT" Type="Self.NHAPKHO_CT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHAPKHO">
+        <PropertyRef Name="SoPhieuN" />
+      </Principal>
+      <Dependent Role="NHAPKHO_CT">
+        <PropertyRef Name="SoPhieuN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XUATKHO_CT_HANGHOA">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="0..1" />
+    <End Role="XUATKHO_CT" Type="Self.XUATKHO_CT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="XUATKHO_CT">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XUATKHO_CT_XUATKHO">
+    <End Role="XUATKHO" Type="Self.XUATKHO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="XUATKHO_CT" Type="Self.XUATKHO_CT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XUATKHO">
+        <PropertyRef Name="SoPhieuX" />
+      </Principal>
+      <Dependent Role="XUATKHO_CT">
+        <PropertyRef Name="SoPhieuX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XUATKHO_DAILY">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="XUATKHO" Type="Self.XUATKHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="XUATKHO">
+        <PropertyRef Name="TenTKDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLiHangHoaModelStoreContainer">
+    <EntitySet Name="DAILY" EntityType="Self.DAILY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HANGHOA" EntityType="Self.HANGHOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KETOAN" EntityType="Self.KETOAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIHANG" EntityType="Self.LOAIHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHAPKHO" EntityType="Self.NHAPKHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHAPKHO_CT" EntityType="Self.NHAPKHO_CT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XUATKHO" EntityType="Self.XUATKHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XUATKHO_CT" EntityType="Self.XUATKHO_CT" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_HANGHOA_LOAIHANG" Association="Self.FK_HANGHOA_LOAIHANG">
+      <End Role="LOAIHANG" EntitySet="LOAIHANG" />
+      <End Role="HANGHOA" EntitySet="HANGHOA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHAPKHO_CT_HANGHOA" Association="Self.FK_NHAPKHO_CT_HANGHOA">
+      <End Role="HANGHOA" EntitySet="HANGHOA" />
+      <End Role="NHAPKHO_CT" EntitySet="NHAPKHO_CT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHAPKHO_CT_NHAPKHO" Association="Self.FK_NHAPKHO_CT_NHAPKHO">
+      <End Role="NHAPKHO" EntitySet="NHAPKHO" />
+      <End Role="NHAPKHO_CT" EntitySet="NHAPKHO_CT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XUATKHO_CT_HANGHOA" Association="Self.FK_XUATKHO_CT_HANGHOA">
+      <End Role="HANGHOA" EntitySet="HANGHOA" />
+      <End Role="XUATKHO_CT" EntitySet="XUATKHO_CT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XUATKHO_CT_XUATKHO" Association="Self.FK_XUATKHO_CT_XUATKHO">
+      <End Role="XUATKHO" EntitySet="XUATKHO" />
+      <End Role="XUATKHO_CT" EntitySet="XUATKHO_CT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XUATKHO_DAILY" Association="Self.FK_XUATKHO_DAILY">
+      <End Role="DAILY" EntitySet="DAILY" />
+      <End Role="XUATKHO" EntitySet="XUATKHO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

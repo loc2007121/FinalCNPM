@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLiHangHoaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DAILY">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenDAILY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="XUATKHOes" Relationship="Self.FK_XUATKHO_DAILY" FromRole="DAILY" ToRole="XUATKHO" />
+  </EntityType>
+  <EntityType Name="HANGHOA">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NhaCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DVT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoai" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LOAIHANG" Relationship="Self.FK_HANGHOA_LOAIHANG" FromRole="HANGHOA" ToRole="LOAIHANG" />
+    <NavigationProperty Name="NHAPKHO_CT" Relationship="Self.FK_NHAPKHO_CT_HANGHOA" FromRole="HANGHOA" ToRole="NHAPKHO_CT" />
+    <NavigationProperty Name="XUATKHO_CT" Relationship="Self.FK_XUATKHO_CT_HANGHOA" FromRole="HANGHOA" ToRole="XUATKHO_CT" />
+  </EntityType>
+  <EntityType Name="KETOAN">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quyen" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LOAIHANG">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HANGHOAs" Relationship="Self.FK_HANGHOA_LOAIHANG" FromRole="LOAIHANG" ToRole="HANGHOA" />
+  </EntityType>
+  <EntityType Name="NHAPKHO">
+    <Key>
+      <PropertyRef Name="SoPhieuN" />
+    </Key>
+    <Property Name="SoPhieuN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="3" />
+    <Property Name="NguoiNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LyDoNhap" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHAPKHO_CT" Relationship="Self.FK_NHAPKHO_CT_NHAPKHO" FromRole="NHAPKHO" ToRole="NHAPKHO_CT" />
+  </EntityType>
+  <EntityType Name="NHAPKHO_CT">
+    <Key>
+      <PropertyRef Name="SoPhieuN" />
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="SoPhieuN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="STT" Type="Int32" Nullable="false" />
+    <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SLNhap" Type="Double" />
+    <Property Name="DGNhap" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="HANGHOA" Relationship="Self.FK_NHAPKHO_CT_HANGHOA" FromRole="NHAPKHO_CT" ToRole="HANGHOA" />
+    <NavigationProperty Name="NHAPKHO" Relationship="Self.FK_NHAPKHO_CT_NHAPKHO" FromRole="NHAPKHO_CT" ToRole="NHAPKHO" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="XUATKHO">
+    <Key>
+      <PropertyRef Name="SoPhieuX" />
+    </Key>
+    <Property Name="SoPhieuX" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayXuat" Type="DateTime" Precision="3" />
+    <Property Name="TenTKDaiLy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LyDoXuat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DAILY" Relationship="Self.FK_XUATKHO_DAILY" FromRole="XUATKHO" ToRole="DAILY" />
+    <NavigationProperty Name="XUATKHO_CT" Relationship="Self.FK_XUATKHO_CT_XUATKHO" FromRole="XUATKHO" ToRole="XUATKHO_CT" />
+  </EntityType>
+  <EntityType Name="XUATKHO_CT">
+    <Key>
+      <PropertyRef Name="SoPhieuX" />
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="SoPhieuX" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="STT" Type="Int32" Nullable="false" />
+    <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SLXuat" Type="Double" />
+    <Property Name="DGXuat" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="HANGHOA" Relationship="Self.FK_XUATKHO_CT_HANGHOA" FromRole="XUATKHO_CT" ToRole="HANGHOA" />
+    <NavigationProperty Name="XUATKHO" Relationship="Self.FK_XUATKHO_CT_XUATKHO" FromRole="XUATKHO_CT" ToRole="XUATKHO" />
+  </EntityType>
+  <Association Name="FK_XUATKHO_DAILY">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="XUATKHO" Type="Self.XUATKHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="XUATKHO">
+        <PropertyRef Name="TenTKDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HANGHOA_LOAIHANG">
+    <End Role="LOAIHANG" Type="Self.LOAIHANG" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIHANG">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="HANGHOA">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHAPKHO_CT_HANGHOA">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="0..1" />
+    <End Role="NHAPKHO_CT" Type="Self.NHAPKHO_CT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="NHAPKHO_CT">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XUATKHO_CT_HANGHOA">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="0..1" />
+    <End Role="XUATKHO_CT" Type="Self.XUATKHO_CT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="XUATKHO_CT">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHAPKHO_CT_NHAPKHO">
+    <End Role="NHAPKHO" Type="Self.NHAPKHO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NHAPKHO_CT" Type="Self.NHAPKHO_CT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHAPKHO">
+        <PropertyRef Name="SoPhieuN" />
+      </Principal>
+      <Dependent Role="NHAPKHO_CT">
+        <PropertyRef Name="SoPhieuN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XUATKHO_CT_XUATKHO">
+    <End Role="XUATKHO" Type="Self.XUATKHO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="XUATKHO_CT" Type="Self.XUATKHO_CT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XUATKHO">
+        <PropertyRef Name="SoPhieuX" />
+      </Principal>
+      <Dependent Role="XUATKHO_CT">
+        <PropertyRef Name="SoPhieuX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLiHangHoaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DAILies" EntityType="Self.DAILY" />
+    <EntitySet Name="HANGHOAs" EntityType="Self.HANGHOA" />
+    <EntitySet Name="KETOANs" EntityType="Self.KETOAN" />
+    <EntitySet Name="LOAIHANGs" EntityType="Self.LOAIHANG" />
+    <EntitySet Name="NHAPKHOes" EntityType="Self.NHAPKHO" />
+    <EntitySet Name="NHAPKHO_CT" EntityType="Self.NHAPKHO_CT" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="XUATKHOes" EntityType="Self.XUATKHO" />
+    <EntitySet Name="XUATKHO_CT" EntityType="Self.XUATKHO_CT" />
+    <AssociationSet Name="FK_XUATKHO_DAILY" Association="Self.FK_XUATKHO_DAILY">
+      <End Role="DAILY" EntitySet="DAILies" />
+      <End Role="XUATKHO" EntitySet="XUATKHOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HANGHOA_LOAIHANG" Association="Self.FK_HANGHOA_LOAIHANG">
+      <End Role="LOAIHANG" EntitySet="LOAIHANGs" />
+      <End Role="HANGHOA" EntitySet="HANGHOAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHAPKHO_CT_HANGHOA" Association="Self.FK_NHAPKHO_CT_HANGHOA">
+      <End Role="HANGHOA" EntitySet="HANGHOAs" />
+      <End Role="NHAPKHO_CT" EntitySet="NHAPKHO_CT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XUATKHO_CT_HANGHOA" Association="Self.FK_XUATKHO_CT_HANGHOA">
+      <End Role="HANGHOA" EntitySet="HANGHOAs" />
+      <End Role="XUATKHO_CT" EntitySet="XUATKHO_CT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHAPKHO_CT_NHAPKHO" Association="Self.FK_NHAPKHO_CT_NHAPKHO">
+      <End Role="NHAPKHO" EntitySet="NHAPKHOes" />
+      <End Role="NHAPKHO_CT" EntitySet="NHAPKHO_CT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XUATKHO_CT_XUATKHO" Association="Self.FK_XUATKHO_CT_XUATKHO">
+      <End Role="XUATKHO" EntitySet="XUATKHOes" />
+      <End Role="XUATKHO_CT" EntitySet="XUATKHO_CT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

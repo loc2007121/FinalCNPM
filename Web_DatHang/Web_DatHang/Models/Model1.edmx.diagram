@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed2252c3e5bc4219ab16a88dce5e7f27" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.DAILY" Width="1.5" PointX="3.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.HANGHOA" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.KETOAN" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.LOAIHANG" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.NHAPKHO" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.NHAPKHO_CT" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.sysdiagram" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.XUATKHO" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiHangHoaModel.XUATKHO_CT" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="QuanLiHangHoaModel.FK_XUATKHO_DAILY" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiHangHoaModel.FK_HANGHOA_LOAIHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiHangHoaModel.FK_NHAPKHO_CT_HANGHOA" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiHangHoaModel.FK_XUATKHO_CT_HANGHOA" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiHangHoaModel.FK_NHAPKHO_CT_NHAPKHO" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiHangHoaModel.FK_XUATKHO_CT_XUATKHO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
