@@ -52,26 +52,36 @@ namespace Final_CNPM
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tbxImportRecordNumber = new System.Windows.Forms.TextBox();
+            this.tbxIDImport = new System.Windows.Forms.TextBox();
+            this.tbxProductCodeImport = new System.Windows.Forms.TextBox();
+            this.tbxReasonCodeImport = new System.Windows.Forms.TextBox();
+            this.tbxQuantityImport = new System.Windows.Forms.TextBox();
+            this.tbxPriceImport = new System.Windows.Forms.TextBox();
             this.tbpImport = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGriViewImport = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCreateImport = new System.Windows.Forms.Button();
+            this.btnDeleteImport = new System.Windows.Forms.Button();
+            this.btnUpdateImport = new System.Windows.Forms.Button();
+            this.btnPhotoImport = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnTotalImport = new System.Windows.Forms.TextBox();
+            this.btnChooseRecordImport = new System.Windows.Forms.Button();
+            this.tbxDateCreateImport = new System.Windows.Forms.DateTimePicker();
+            this.SoPhieuN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DGNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SLNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcMain.SuspendLayout();
             this.tbpExport.SuspendLayout();
             this.tbpReport.SuspendLayout();
             this.tbpImport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGriViewImport)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMain
@@ -267,9 +277,9 @@ namespace Final_CNPM
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(57, 219);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 20);
+            this.label11.Size = new System.Drawing.Size(115, 20);
             this.label11.TabIndex = 13;
-            this.label11.Text = "Accountant Name";
+            this.label11.Text = "Reason Import";
             // 
             // label10
             // 
@@ -289,62 +299,66 @@ namespace Final_CNPM
             this.label9.TabIndex = 18;
             this.label9.Text = "Price";
             // 
-            // textBox12
+            // tbxImportRecordNumber
             // 
-            this.textBox12.Location = new System.Drawing.Point(254, 81);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(338, 26);
-            this.textBox12.TabIndex = 19;
+            this.tbxImportRecordNumber.Location = new System.Drawing.Point(254, 81);
+            this.tbxImportRecordNumber.Name = "tbxImportRecordNumber";
+            this.tbxImportRecordNumber.Size = new System.Drawing.Size(338, 26);
+            this.tbxImportRecordNumber.TabIndex = 19;
             // 
-            // textBox11
+            // tbxIDImport
             // 
-            this.textBox11.Location = new System.Drawing.Point(254, 127);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(338, 26);
-            this.textBox11.TabIndex = 20;
+            this.tbxIDImport.Location = new System.Drawing.Point(254, 127);
+            this.tbxIDImport.Name = "tbxIDImport";
+            this.tbxIDImport.Size = new System.Drawing.Size(338, 26);
+            this.tbxIDImport.TabIndex = 20;
             // 
-            // textBox10
+            // tbxProductCodeImport
             // 
-            this.textBox10.Location = new System.Drawing.Point(254, 173);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(338, 26);
-            this.textBox10.TabIndex = 21;
+            this.tbxProductCodeImport.Location = new System.Drawing.Point(254, 173);
+            this.tbxProductCodeImport.Name = "tbxProductCodeImport";
+            this.tbxProductCodeImport.Size = new System.Drawing.Size(338, 26);
+            this.tbxProductCodeImport.TabIndex = 21;
             // 
-            // textBox9
+            // tbxReasonCodeImport
             // 
-            this.textBox9.Location = new System.Drawing.Point(254, 219);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(338, 26);
-            this.textBox9.TabIndex = 22;
+            this.tbxReasonCodeImport.Location = new System.Drawing.Point(254, 219);
+            this.tbxReasonCodeImport.Name = "tbxReasonCodeImport";
+            this.tbxReasonCodeImport.Size = new System.Drawing.Size(338, 26);
+            this.tbxReasonCodeImport.TabIndex = 22;
             // 
-            // textBox8
+            // tbxQuantityImport
             // 
-            this.textBox8.Location = new System.Drawing.Point(254, 265);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(338, 26);
-            this.textBox8.TabIndex = 23;
+            this.tbxQuantityImport.Location = new System.Drawing.Point(254, 265);
+            this.tbxQuantityImport.Name = "tbxQuantityImport";
+            this.tbxQuantityImport.Size = new System.Drawing.Size(338, 26);
+            this.tbxQuantityImport.TabIndex = 23;
             // 
-            // textBox7
+            // tbxPriceImport
             // 
-            this.textBox7.Location = new System.Drawing.Point(254, 311);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(338, 26);
-            this.textBox7.TabIndex = 24;
+            this.tbxPriceImport.Location = new System.Drawing.Point(254, 311);
+            this.tbxPriceImport.Name = "tbxPriceImport";
+            this.tbxPriceImport.Size = new System.Drawing.Size(338, 26);
+            this.tbxPriceImport.TabIndex = 24;
             // 
             // tbpImport
             // 
-            this.tbpImport.Controls.Add(this.button4);
-            this.tbpImport.Controls.Add(this.button3);
-            this.tbpImport.Controls.Add(this.button2);
-            this.tbpImport.Controls.Add(this.button1);
+            this.tbpImport.Controls.Add(this.tbxDateCreateImport);
+            this.tbpImport.Controls.Add(this.btnChooseRecordImport);
+            this.tbpImport.Controls.Add(this.btnTotalImport);
+            this.tbpImport.Controls.Add(this.label16);
+            this.tbpImport.Controls.Add(this.btnPhotoImport);
+            this.tbpImport.Controls.Add(this.btnUpdateImport);
+            this.tbpImport.Controls.Add(this.btnDeleteImport);
+            this.tbpImport.Controls.Add(this.btnCreateImport);
             this.tbpImport.Controls.Add(this.label1);
-            this.tbpImport.Controls.Add(this.dataGridView2);
-            this.tbpImport.Controls.Add(this.textBox7);
-            this.tbpImport.Controls.Add(this.textBox8);
-            this.tbpImport.Controls.Add(this.textBox9);
-            this.tbpImport.Controls.Add(this.textBox10);
-            this.tbpImport.Controls.Add(this.textBox11);
-            this.tbpImport.Controls.Add(this.textBox12);
+            this.tbpImport.Controls.Add(this.dataGriViewImport);
+            this.tbpImport.Controls.Add(this.tbxPriceImport);
+            this.tbpImport.Controls.Add(this.tbxQuantityImport);
+            this.tbpImport.Controls.Add(this.tbxReasonCodeImport);
+            this.tbpImport.Controls.Add(this.tbxProductCodeImport);
+            this.tbpImport.Controls.Add(this.tbxIDImport);
+            this.tbpImport.Controls.Add(this.tbxImportRecordNumber);
             this.tbpImport.Controls.Add(this.label9);
             this.tbpImport.Controls.Add(this.label10);
             this.tbpImport.Controls.Add(this.label11);
@@ -371,15 +385,22 @@ namespace Final_CNPM
             this.dataGridView1.Size = new System.Drawing.Size(1135, 449);
             this.dataGridView1.TabIndex = 0;
             // 
-            // dataGridView2
+            // dataGriViewImport
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(608, 81);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(617, 498);
-            this.dataGridView2.TabIndex = 25;
+            this.dataGriViewImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGriViewImport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SoPhieuN,
+            this.STT,
+            this.MaHang,
+            this.DGNhap,
+            this.SLNhap,
+            this.ThanhTien});
+            this.dataGriViewImport.Location = new System.Drawing.Point(608, 127);
+            this.dataGriViewImport.Name = "dataGriViewImport";
+            this.dataGriViewImport.RowHeadersWidth = 62;
+            this.dataGriViewImport.RowTemplate.Height = 28;
+            this.dataGriViewImport.Size = new System.Drawing.Size(617, 396);
+            this.dataGriViewImport.TabIndex = 25;
             // 
             // label1
             // 
@@ -390,41 +411,126 @@ namespace Final_CNPM
             this.label1.TabIndex = 26;
             this.label1.Text = "Date Create";
             // 
-            // button1
+            // btnCreateImport
             // 
-            this.button1.Location = new System.Drawing.Point(61, 408);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 42);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCreateImport.Location = new System.Drawing.Point(52, 481);
+            this.btnCreateImport.Name = "btnCreateImport";
+            this.btnCreateImport.Size = new System.Drawing.Size(111, 42);
+            this.btnCreateImport.TabIndex = 27;
+            this.btnCreateImport.Text = "Create";
+            this.btnCreateImport.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnDeleteImport
             // 
-            this.button2.Location = new System.Drawing.Point(61, 481);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 42);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeleteImport.Location = new System.Drawing.Point(480, 481);
+            this.btnDeleteImport.Name = "btnDeleteImport";
+            this.btnDeleteImport.Size = new System.Drawing.Size(111, 42);
+            this.btnDeleteImport.TabIndex = 28;
+            this.btnDeleteImport.Text = "Delete";
+            this.btnDeleteImport.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnUpdateImport
             // 
-            this.button3.Location = new System.Drawing.Point(61, 548);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 42);
-            this.button3.TabIndex = 29;
-            this.button3.Text = "Update";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnUpdateImport.Location = new System.Drawing.Point(266, 481);
+            this.btnUpdateImport.Name = "btnUpdateImport";
+            this.btnUpdateImport.Size = new System.Drawing.Size(111, 42);
+            this.btnUpdateImport.TabIndex = 29;
+            this.btnUpdateImport.Text = "Update";
+            this.btnUpdateImport.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnPhotoImport
             // 
-            this.button4.Location = new System.Drawing.Point(292, 408);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(111, 42);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "Create";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPhotoImport.Location = new System.Drawing.Point(1114, 81);
+            this.btnPhotoImport.Name = "btnPhotoImport";
+            this.btnPhotoImport.Size = new System.Drawing.Size(111, 42);
+            this.btnPhotoImport.TabIndex = 30;
+            this.btnPhotoImport.Text = "Photo";
+            this.btnPhotoImport.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(945, 570);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 20);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Total ";
+            // 
+            // btnTotalImport
+            // 
+            this.btnTotalImport.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btnTotalImport.ForeColor = System.Drawing.Color.Red;
+            this.btnTotalImport.Location = new System.Drawing.Point(999, 564);
+            this.btnTotalImport.Name = "btnTotalImport";
+            this.btnTotalImport.ReadOnly = true;
+            this.btnTotalImport.Size = new System.Drawing.Size(226, 26);
+            this.btnTotalImport.TabIndex = 32;
+            // 
+            // btnChooseRecordImport
+            // 
+            this.btnChooseRecordImport.Location = new System.Drawing.Point(608, 81);
+            this.btnChooseRecordImport.Name = "btnChooseRecordImport";
+            this.btnChooseRecordImport.Size = new System.Drawing.Size(146, 42);
+            this.btnChooseRecordImport.TabIndex = 33;
+            this.btnChooseRecordImport.Text = "Choose Record";
+            this.btnChooseRecordImport.UseVisualStyleBackColor = true;
+            // 
+            // tbxDateCreateImport
+            // 
+            this.tbxDateCreateImport.Location = new System.Drawing.Point(254, 350);
+            this.tbxDateCreateImport.Name = "tbxDateCreateImport";
+            this.tbxDateCreateImport.Size = new System.Drawing.Size(338, 26);
+            this.tbxDateCreateImport.TabIndex = 34;
+            // 
+            // SoPhieuN
+            // 
+            this.SoPhieuN.DataPropertyName = "SoPhieuN";
+            this.SoPhieuN.HeaderText = "Import Record Number";
+            this.SoPhieuN.MinimumWidth = 8;
+            this.SoPhieuN.Name = "SoPhieuN";
+            this.SoPhieuN.Width = 150;
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "ID";
+            this.STT.MinimumWidth = 8;
+            this.STT.Name = "STT";
+            this.STT.Width = 150;
+            // 
+            // MaHang
+            // 
+            this.MaHang.DataPropertyName = "MaHang";
+            this.MaHang.HeaderText = "Product Code";
+            this.MaHang.MinimumWidth = 8;
+            this.MaHang.Name = "MaHang";
+            this.MaHang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MaHang.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.MaHang.Width = 210;
+            // 
+            // DGNhap
+            // 
+            this.DGNhap.DataPropertyName = "DGNhap";
+            this.DGNhap.HeaderText = "Price";
+            this.DGNhap.MinimumWidth = 8;
+            this.DGNhap.Name = "DGNhap";
+            this.DGNhap.Width = 150;
+            // 
+            // SLNhap
+            // 
+            this.SLNhap.DataPropertyName = "SLNhap";
+            this.SLNhap.HeaderText = "Import Quantity";
+            this.SLNhap.MinimumWidth = 8;
+            this.SLNhap.Name = "SLNhap";
+            this.SLNhap.Width = 150;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.DataPropertyName = "ThanhTien";
+            this.ThanhTien.HeaderText = "Total";
+            this.ThanhTien.MinimumWidth = 8;
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.Width = 150;
             // 
             // Main
             // 
@@ -444,7 +550,7 @@ namespace Final_CNPM
             this.tbpImport.ResumeLayout(false);
             this.tbpImport.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGriViewImport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -468,12 +574,12 @@ namespace Final_CNPM
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tbpImport;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox tbxPriceImport;
+        private System.Windows.Forms.TextBox tbxQuantityImport;
+        private System.Windows.Forms.TextBox tbxReasonCodeImport;
+        private System.Windows.Forms.TextBox tbxProductCodeImport;
+        private System.Windows.Forms.TextBox tbxIDImport;
+        private System.Windows.Forms.TextBox tbxImportRecordNumber;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -482,11 +588,21 @@ namespace Final_CNPM
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPhotoImport;
+        private System.Windows.Forms.Button btnUpdateImport;
+        private System.Windows.Forms.Button btnDeleteImport;
+        private System.Windows.Forms.Button btnCreateImport;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGriViewImport;
+        private System.Windows.Forms.Button btnChooseRecordImport;
+        private System.Windows.Forms.TextBox btnTotalImport;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker tbxDateCreateImport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoPhieuN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MaHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DGNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SLNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
     }
 }
