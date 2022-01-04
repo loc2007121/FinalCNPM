@@ -9,3 +9,14 @@ F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.cspro
 F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.CoreCompileInputs.cache
 F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.exe
 F:\Documents\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.pdb
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\bin\Debug\Final_CNPM.exe.config
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\bin\Debug\Final_CNPM.exe
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\bin\Debug\Final_CNPM.pdb
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.AssemblyReference.cache
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.Login.resources
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.Main.resources
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.Properties.Resources.resources
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.GenerateResource.cache
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.CoreCompileInputs.cache
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.exe
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.pdb

@@ -1,5 +1,6 @@
 ﻿create database QuanLiHangHoa
 use QuanLiHangHoa
+
 DROP DATABASE QuanLiHangHoa
 drop table DAILY
 
@@ -83,7 +84,7 @@ UPDATE [NHAPKHO] SET
 WHERE
 	[SoPhieuN] = @SoPhieuN
 GO
-/****** Object:  StoredProcedure [dbo].[NHAPKHOList]    Script Date: 12/08/2019 14:36:42 ******/
+--StoredProcedure [dbo].[NHAPKHOList]    
 SET ANSI_NULLS OFF
 GO
 SET QUOTED_IDENTIFIER ON
@@ -98,8 +99,8 @@ SELECT
 	[NguoiNhap] ,
 	[LyDoNhap] 
 FROM [NHAPKHO]
-GO
-/****** Object:  StoredProcedure [dbo].[NHAPKHOGet]    Script Date: 12/08/2019 14:36:42 ******/
+Go
+--StoredProcedure [dbo].[NHAPKHOGet]  
 SET ANSI_NULLS OFF
 GO
 SET QUOTED_IDENTIFIER OFF
@@ -118,7 +119,7 @@ FROM [NHAPKHO]
 WHERE
 	([SoPhieuN] = @SoPhieuN OR @SoPhieuN IS NULL)
 GO
-/****** Object:  StoredProcedure [dbo].[NHAPKHODelete]    Script Date: 12/08/2019 14:36:42 ******/
+--  StoredProcedure [dbo].[NHAPKHODelete]    
 SET ANSI_NULLS OFF
 GO
 SET QUOTED_IDENTIFIER ON
@@ -131,7 +132,7 @@ DELETE FROM [NHAPKHO]
 WHERE
 	[SoPhieuN] = @SoPhieuN
 GO
-/****** Object:  StoredProcedure [dbo].[NHAPKHOAdd]    Script Date: 12/08/2019 14:36:42 ******/
+-- StoredProcedure [dbo].[NHAPKHOAdd]   
 SET ANSI_NULLS OFF
 GO
 SET QUOTED_IDENTIFIER ON
@@ -472,7 +473,30 @@ INSERT INTO HANGHOA (
 
 select SCOPE_IDENTITY()
 GO
---Table [dbo].[NHAPKHO_CT]
+/**TABLE [DBO].[THONGKE]**/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[THONGKE](
+	[SoPhieu] [nvarchar](10) NOT NULL,
+	[NgayThang] [date] NOT NULL,
+	[MaHang] [nvarchar](10) NULL,
+	[TKNguoiLapPhieu] [nvarchar](50) NULL,
+	[ThanhTien] [money] NULL,
+ CONSTRAINT [PK_NHAPKHO_CT] PRIMARY KEY CLUSTERED 
+(
+	[SoPhieu] ASC,
+	[NgayThang] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+/***Table [dbo].[NHAPKHO_CT]**/
+
+
+
 
 DROP TABLE NHAPKHO_CT
 SET ANSI_NULLS ON
@@ -728,3 +752,4 @@ ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[NHAPKHO_CT] CHECK CONSTRAINT [FK_NHAPKHO_CT_KETOAN]
 GO
+
