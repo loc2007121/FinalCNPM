@@ -61,6 +61,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassformImport.cs" />
+    <Compile Include="ClassListExport.cs" />
+    <Compile Include="formListExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formListExport.Designer.cs">
+      <DependentUpon>formListExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formListImportRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formListImportRecord.Designer.cs">
+      <DependentUpon>formListImportRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +89,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formListExport.resx">
+      <DependentUpon>formListExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formListImportRecord.resx">
+      <DependentUpon>formListImportRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

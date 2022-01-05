@@ -51,6 +51,8 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
+delete from NHAPKHO
 CREATE TABLE [dbo].[NHAPKHO](
 	[SoPhieuN] [nvarchar](10) NOT NULL,
 	[NgayNhap] [datetime] NULL,
@@ -62,9 +64,10 @@ CREATE TABLE [dbo].[NHAPKHO](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-INSERT [dbo].[NHAPKHO] ([SoPhieuN], [NgayNhap], [NguoiNhap], [LyDoNhap]) VALUES (N'NK01', CAST(0x0000A95700000000 AS DateTime), N'Nam', N'nhập hàng từ USA')
-INSERT [dbo].[NHAPKHO] ([SoPhieuN], [NgayNhap], [NguoiNhap], [LyDoNhap]) VALUES (N'NK02', CAST(0x0000A95800000000 AS DateTime), N'Duy', N'nhập hàng từ TP HCM')
-INSERT [dbo].[NHAPKHO] ([SoPhieuN], [NgayNhap], [NguoiNhap], [LyDoNhap]) VALUES (N'NK03', CAST(0x0000A98300E4E733 AS DateTime), N'Trí', N'nhập hàng từ Nhật bản')
+Delete from NHAPKHO
+INSERT [dbo].[NHAPKHO] ([SoPhieuN], [NgayNhap], [NguoiNhap], [LyDoNhap]) VALUES (N'NK01', '2022-01-1', N'Pharmacity', N'nhập hàng từ USA')
+INSERT [dbo].[NHAPKHO] ([SoPhieuN], [NgayNhap], [NguoiNhap], [LyDoNhap]) VALUES (N'NK02',  '2022-01-1',  N'ABCPharma', N'nhập hàng từ TP HCM')
+INSERT [dbo].[NHAPKHO] ([SoPhieuN], [NgayNhap], [NguoiNhap], [LyDoNhap]) VALUES (N'NK03',  '2022-01-1', N'NeuPharma', N'nhập hàng từ Nhật bản')
 
 SET ANSI_NULLS OFF
 GO
@@ -473,23 +476,7 @@ INSERT INTO HANGHOA (
 
 select SCOPE_IDENTITY()
 GO
-/**TABLE [DBO].[THONGKE]**/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[THONGKE](
-	[SoPhieu] [nvarchar](10) NOT NULL,
-	[NgayThang] [date] NOT NULL,
-	[MaHang] [nvarchar](10) NULL,
-	[TKNguoiLapPhieu] [nvarchar](50) NULL,
-	[ThanhTien] [money] NULL,
- CONSTRAINT [PK_NHAPKHO_CT] PRIMARY KEY CLUSTERED 
-(
-	[SoPhieu] ASC,
-	[NgayThang] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
+
 
 
 
@@ -497,7 +484,7 @@ CREATE TABLE [dbo].[THONGKE](
 
 
 
-
+Delete from NHAPKHO_CT
 DROP TABLE NHAPKHO_CT
 SET ANSI_NULLS ON
 GO
@@ -510,6 +497,7 @@ CREATE TABLE [dbo].[NHAPKHO_CT](
 	[TKNguoiNhap] [nvarchar](50) NULL,
 	[SLNhap] [float] NULL,
 	[DGNhap] [money] NULL,
+	[DaiLyN] [nvarchar](50) NULL,
  CONSTRAINT [PK_NHAPKHO_CT] PRIMARY KEY CLUSTERED 
 (
 	[SoPhieuN] ASC,
@@ -518,18 +506,18 @@ CREATE TABLE [dbo].[NHAPKHO_CT](
 ) ON [PRIMARY]
 GO
 INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK01', 1, N'USA01', N'tuan', 50, 8000.0000)
-INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK01', 2,  N'JPA01', N'tuan', 100, 14000.0000)
+INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK01', 2,  N'JPA01', N'tri', 100, 14000.0000)
 INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK01', 3, N'JPA01', N'tuan', 20, 32000.0000)
-INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK01', 4,  N'USA02', N'tuan', 10, 12000.0000)
+INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK01', 4,  N'USA02', N'tri', 10, 12000.0000)
 INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK01', 5,  N'USA03', N'tuan', 30, 11000.0000)
-INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK02', 1, N'RUS01', N'tuan', 40, 14500.0000)
+INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK02', 1, N'RUS01', N'tri', 40, 14500.0000)
 INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK02', 2,  N'RUS02', N'tuan', 50, 35000.0000)
-INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK02', 3,  N'USA03', N'tuan', 200, 30000.0000)
+INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK02', 3,  N'USA03', N'tri', 200, 30000.0000)
 INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK02', 4,  N'USA02', N'tuan', 30, 6000.0000)
 INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK02', 5, N'USA01', N'tuan', 50, 6000.0000)
-INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK03', 1,  N'RUS03', N'tuan', 2, 50000.0000)
+INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK03', 1,  N'RUS03', N'tri', 2, 50000.0000)
 INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK03', 2,  N'JPA01', N'tuan', 2, 13000.0000)
-INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK03', 3,  N'USA01', N'tuan', 6, 15000.0000)
+INSERT [dbo].[NHAPKHO_CT] ([SoPhieuN], [STT], [MaHang], [TKNguoiNhap], [SLNhap], [DGNhap]) VALUES (N'NK03', 3,  N'USA01', N'tri', 6, 15000.0000)
 --StoredProcedure [NHAPKHO_CTUpdate]
 SET ANSI_NULLS OFF
 GO

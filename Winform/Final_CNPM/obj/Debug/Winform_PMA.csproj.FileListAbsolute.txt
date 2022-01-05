@@ -20,3 +20,5 @@ D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.Generate
 D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Winform_PMA.csproj.CoreCompileInputs.cache
 D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.exe
 D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.pdb
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.formListImportRecord.resources
+D:\CNPM\Final\FinalCNPM\Winform\Final_CNPM\obj\Debug\Final_CNPM.formListExport.resources
