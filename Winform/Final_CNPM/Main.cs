@@ -24,7 +24,8 @@ namespace Final_CNPM
 
         SqlCommand tempCommand = new SqlCommand();
         SqlDataAdapter tempAdater = new SqlDataAdapter();
-
+        SqlDataAdapter adapterExport = new SqlDataAdapter();
+        SqlDataAdapter adapterChoose = new SqlDataAdapter();
         int position;
 
 
@@ -123,15 +124,22 @@ namespace Final_CNPM
 
         }
 
-  
+        private void dataGriViewImport_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            dataGriViewImport.Rows[e.Row.Index - 1].Cells["SoPhieuN"].Value = tbxImportRecordNumber.Text;
+        }
+
+
+
+
 
         private void btnFirstExport_Click(object sender, EventArgs e)
         {
             if (dataExport.Rows.Count>0)
             {
                 position = 0;
-                MoveToImportRecord(position);
-                PushCTImportRecord(tbxExportRecordNumber.Text.ToString());
+                MoveToExportRecord(position);
+                PushCTExportRecord(tbxExportRecordNumber.Text.ToString());
 
             }
         }
@@ -192,25 +200,13 @@ namespace Final_CNPM
 
         private void btnCreateImport_Click(object sender, EventArgs e)
         {
-            tempCommand.CommandText = "Insert into NHAPKHO(SoPhieuN, NguoiNhap, LyDoNhap)" + "Values(@SoPhieuN, @NguoiNhap, LyDoNhap);" +
-                "Insert into NHAPKHO_CT(SoPhieuN, STT, MaHang, TKNguoiNhap, SLNhap, DGNhap)" + "Values(@SoPhieuN2, @STT, @MaHang, @TKNguoiNhap, @SLNhap, @DGNhap)";
-            tempCommand.Parameters.Clear();
-            tempCommand.Parameters.AddWithValue("@SoPhieuN", tbxImportRecordNumber.Text);
-            tempCommand.Parameters.AddWithValue("@NguoiNhap", tbxCompany.Text);
-            tempCommand.Parameters.AddWithValue("@LyDoNhap", tbxReasonCodeImport.Text);
-            tempCommand.Parameters.AddWithValue("@SoPhieuN2", tbxImportRecordNumber.Text);
-            tempCommand.Parameters.AddWithValue("@STT", tbxIDImport.Text);
-            tempCommand.Parameters.AddWithValue("@MaHang", tbxProductCodeImport.Text);
-            tempCommand.Parameters.AddWithValue("@TKNguoiNhap", "tuan");
-            tempCommand.Parameters.AddWithValue("@DGNhap", 100000);
-            tempCommand.Parameters.AddWithValue("@SLNHap", tbxQuantityImport.Text);
-            
-           
+
+            tempCommand.CommandText = "Insert into NHAPKHO values(" + "N'" + tbxImportRecordNumber.Text + "', '" + tbxDateCreateImport.Value.Date + "', N'" + tbxCompany.Text + "', N'" + tbxReasonCodeImport.Text + "')";
             tempCommand.ExecuteNonQuery();
             MessageBox.Show("You have created a Import Record Numver");
-            
             PushImportRecords();
             PushCTImportRecord(tbxImportRecordNumber.Text);
+
 
         }
 
@@ -234,12 +230,12 @@ namespace Final_CNPM
         {
 
             PushProductCode();
-            command.CommandText = "Select SoPhieuX, STT, MaHang, SLXuat, DGXuat,TKNguoiXuat, SLXuat*DGXuat as ThanhTien From XUATKHO_CT Where SoPhieuX = @SPX";
+            command.CommandText = "Select SoPhieuX, STT, MaHang, TKNguoiXuat, SLXuat, DGXuat, SLXuat * DGXuat as ThanhTienX From XUATKHO_CT Where SoPhieuX = @SPX";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@SPX", spx);
-            adapter.SelectCommand = command;
+            adapterExport.SelectCommand = command;
             dataExport_CT.Clear();
-            adapter.Fill(dataExport_CT);
+            adapterExport.Fill(dataExport_CT);
             dataGridViewExport.DataSource = dataExport_CT;
 
             double total = 0;
@@ -252,11 +248,11 @@ namespace Final_CNPM
             tbxTotalExport.Text = total.ToString();
         }
 
-        void PushOneExportRecord(string spn)
+        void PushOneExportRecord(string spx)
         {
             tempCommand.CommandText = "Select * From XUATKHO Where SoPhieuX = @SPX";
             tempCommand.Parameters.Clear();
-            tempCommand.Parameters.AddWithValue("@SPX", spn);
+            tempCommand.Parameters.AddWithValue("@SPX", spx);
             tempAdater.SelectCommand = tempCommand;
             DataTable dataExport = new DataTable("OneExportRecord");
             tempAdater.Fill(dataExport);
@@ -309,9 +305,6 @@ namespace Final_CNPM
 
 
         }
-
-     
-
      
 
         private void btnLastExport_Click(object sender, EventArgs e)
@@ -348,7 +341,7 @@ namespace Final_CNPM
 
         private void btnChooseRecordExport_Click(object sender, EventArgs e)
         {
-            formListExportRecord form = new formListExportRecord();
+            formListExport form = new formListExport();
             form.ShowDialog();
             if (ClassformImport.ExportRecordNumber != null)
             {
@@ -359,25 +352,47 @@ namespace Final_CNPM
 
         private void btnCreateExport_Click(object sender, EventArgs e)
         {
-            tempCommand.CommandText = "Insert into NHAPKHO(SoPhieuX, NgayXuat, NguoiXuat, LyDoXuat)" + "Values(@SoPhieuX, @NgayXuat, @NguoiXuat, LyDoXuat);" +
-                "Insert into NHAPKHO_CT(SoPhieuN, STT, MaHang, TKNguoiNhap, SLNhap, DGNhap)" + "Values(@SoPhieuN2, @STT, @MaHang, @TKNguoiXuat, @SLXuat, @DGXuat)";
-            tempCommand.Parameters.Clear();
-            tempCommand.Parameters.AddWithValue("@SoPhieuX", tbxExportRecordNumber.Text);
-            tempCommand.Parameters.AddWithValue("@NgayXuat", null);
-            tempCommand.Parameters.AddWithValue("@NguoiXuat", tbxCompany.Text);
-            tempCommand.Parameters.AddWithValue("LyDoXuat", tbxReasonExport.Text);
-            tempCommand.Parameters.AddWithValue("@SoPhieuX2", tbxExportRecordNumber.Text);
-            tempCommand.Parameters.AddWithValue("@STT", tbxIDImport.Text);
-            tempCommand.Parameters.AddWithValue("@MaHang", tbxProductCodeExport.Text);
-            tempCommand.Parameters.AddWithValue("@TKNguoiXuat", "tuan");
-            tempCommand.Parameters.AddWithValue("@SLXuat", tbxQuantityExport.Text);
-            tempCommand.Parameters.AddWithValue("@LyDoXuat", tbxReasonExport.Text);
+            DateTime date = Convert.ToDateTime(dateTimeExport.Text);
+            tempCommand.CommandText = "Insert into XUATKHO values(" + "N'" + tbxExportRecordNumber.Text + "', '" + dateTimeExport.Value.Date + "', N'" + tbxCustomer.Text + "', N'" + tbxReasonExport.Text + "')";
             tempCommand.ExecuteNonQuery();
             MessageBox.Show("You have created a Export Record Numver");
 
             PushExportRecords();
             PushCTExportRecord(tbxExportRecordNumber.Text);
 
+        }
+
+        private void dataGriViewImport_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                double total = Convert.ToDouble(dataGriViewImport.Rows[e.RowIndex].Cells["SLNhap"].Value) * Convert.ToDouble(dataGriViewImport.Rows[e.RowIndex].Cells["DGNhap"].Value);
+                dataGriViewImport.Rows[e.RowIndex].Cells["ThanhTien"].Value = total;
+
+
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(adapter);
+                adapter.Update(dataImport_CT);
+            }
+            catch { }
+        }
+
+        private void dataGridViewExport_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            dataGridViewExport.Rows[e.Row.Index - 1].Cells["SoPhieuX"].Value = tbxExportRecordNumber.Text;
+        }
+
+        private void dataGridViewExport_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                double total = Convert.ToDouble(dataGridViewExport.Rows[e.RowIndex].Cells["SLXuat"].Value) * Convert.ToDouble(dataGridViewExport.Rows[e.RowIndex].Cells["DGXuat"].Value);
+                dataGridViewExport.Rows[e.RowIndex].Cells["ThanhTienX"].Value = total;
+
+
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(adapterExport);
+                adapterExport.Update(dataExport_CT);
+            }
+            catch { }
         }
     }
 }

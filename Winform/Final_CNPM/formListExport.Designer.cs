@@ -52,6 +52,7 @@ namespace Final_CNPM
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(800, 450);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // SoPhieuX
             // 
@@ -79,7 +80,7 @@ namespace Final_CNPM
             // 
             // LiDoXuat
             // 
-            this.LiDoXuat.DataPropertyName = "LiDoXuat";
+            this.LiDoXuat.DataPropertyName = "LyDoXuat";
             this.LiDoXuat.HeaderText = "Reason Export";
             this.LiDoXuat.MinimumWidth = 8;
             this.LiDoXuat.Name = "LiDoXuat";

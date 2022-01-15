@@ -16,8 +16,8 @@ namespace Final_CNPM
         SqlConnection connection = new SqlConnection();
         SqlCommand command = new SqlCommand();
         SqlDataAdapter adapter = new SqlDataAdapter();
-        DataTable dataImport_CT = new DataTable("NHAPKHO_CT");
-        DataTable dataImport = new DataTable("NHAPKHO");
+        DataTable dataExport_CT = new DataTable("XUATKHO_CT");
+        DataTable dataExport = new DataTable("XUATKHO");
 
         SqlCommand tempCommand = new SqlCommand();
         SqlDataAdapter tempAdater = new SqlDataAdapter();
@@ -34,12 +34,12 @@ namespace Final_CNPM
         }
         void PushListExportRecord()
         {
-            command.CommandText = "Select * from NHAPKHO";
+            command.CommandText = "Select * from XUATKHO";
             command.Parameters.Clear();
             adapter.SelectCommand = command;
-            DataTable data = new DataTable("NK");
-            adapter.Fill(data);
-            dataGridView1.DataSource = data;
+            DataTable data1 = new DataTable("XK");
+            adapter.Fill(data1);
+            dataGridView1.DataSource = data1;
 
         }
 
@@ -48,11 +48,11 @@ namespace Final_CNPM
             PushListExportRecord();
         }
 
-        private void dataGridViewListImportRecords_DoubleClick(object sender, EventArgs e)
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                ClassformImport.ImportRecordNumber = dataGridView1.SelectedRows[0].Cells["SoPhieuN"].Value.ToString();
+                ClassformImport.ExportRecordNumber = dataGridView1.SelectedRows[0].Cells["SoPhieuX"].Value.ToString();
                 Close();
             }
         }

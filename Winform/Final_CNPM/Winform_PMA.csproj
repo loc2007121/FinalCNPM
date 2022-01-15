@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassformImport.cs" />
-    <Compile Include="ClassListExport.cs" />
     <Compile Include="formListExport.cs">
       <SubType>Form</SubType>
     </Compile>

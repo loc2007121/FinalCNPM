@@ -27,7 +27,7 @@ namespace Final_CNPM
             sda.Fill(dataTable);
             if (dataTable.Rows.Count == 1)
             {
-                ClassformImport.nameAccountant = dataTable.Rows[0].ItemArray.GetValue(0).ToString();
+                ClassformImport.nameAccountant = dataTable.Rows[0].ItemArray[2].ToString();
                 Main formMain = new Main();
                 this.Hide();
                 formMain.Show();

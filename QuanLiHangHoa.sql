@@ -1,6 +1,13 @@
 ﻿create database QuanLiHangHoa
 use QuanLiHangHoa
 
+Select * from XUATKHO where SoPhieuX = 'XK08'
+Select * from XUATKHO_CT where SoPhieuX = 'XK08'
+
+Select * from NHAPKHO where SoPhieuN = 'NK22'
+Select * from NHAPKHO_CT where SoPhieuN = 'NK22'
+
+Alter table NHAPKHO_CT drop DaiLyN
 DROP DATABASE QuanLiHangHoa
 drop table DAILY
 
@@ -188,7 +195,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[XUATKHO](
 	[SoPhieuX] [nvarchar](10) NOT NULL,
-	[NgayXuat] [datetime] NULL,
+	[NgayXuat] [date] NULL,
 	[TenTKDaiLy] [nvarchar](50) NOT NULL,
 	[LyDoXuat] [nvarchar](200) NULL,
  CONSTRAINT [PK_XUATKHO] PRIMARY KEY CLUSTERED 
@@ -340,7 +347,7 @@ UPDATE HANGHOA SET
 WHERE
 	[MaHang] = @MaHang
 GO
-
+Drop table XUATKHO_CT
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -351,7 +358,7 @@ CREATE TABLE [dbo].[XUATKHO_CT](
 	[MaHang] [nvarchar](10) NULL,
 	[TKNguoiXuat] [nvarchar](50) NOT NULL,
 	[SLXuat] [float] NULL,
-	[DGXuat] [money] NULL,
+	[DGXuat] [int] NULL,
  CONSTRAINT [PK_XUATKHO_CT] PRIMARY KEY CLUSTERED 
 (
 	[SoPhieuX] ASC,
@@ -359,15 +366,15 @@ CREATE TABLE [dbo].[XUATKHO_CT](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK01', 1, N'USA01', N'tuan', 2, 10000.0000)
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK01', 2, N'RUS02', N'tri', 1,  8000.0000)
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK01', 3, N'USA02', N'tuan', 5, 10000.0000)
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK02', 1, N'USA03', N'tuan', 10, 9000.0000)
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK02', 2, N'JPA01', N'tri', 15, 15000.0000)
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK02', 3, N'RUS03', N'tuan', 10, 7000.0000)
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK03', 1, N'JPA02', N'tri', 2, 2000.0000)
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK04', 1, N'JPA03', N'tri', 2, 20000.0000)
-INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK04', 2, N'RUS01', N'tri', 3, 100000.0000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK01', 1, N'USA01', N'tuan', 2, 100000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK01', 2, N'RUS02', N'tri', 1,  800000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK01', 3, N'USA02', N'tuan', 5, 100000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK02', 1, N'USA03', N'tuan', 10, 90000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK02', 2, N'JPA01', N'tri', 15, 150000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK02', 3, N'RUS03', N'tuan', 10, 700000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK03', 1, N'JPA02', N'tri', 2, 200000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK04', 1, N'JPA03', N'tri', 2, 200000)
+INSERT [dbo].[XUATKHO_CT] ([SoPhieuX], [STT], [MaHang], [TKNguoiXuat], [SLXuat], [DGXuat]) VALUES (N'XK04', 2, N'RUS01', N'tri', 3, 100000)
 --StoredProcedure [dbo].[HANGHOAList]  
 SET ANSI_NULLS OFF
 GO
@@ -496,8 +503,7 @@ CREATE TABLE [dbo].[NHAPKHO_CT](
 	[MaHang] [nvarchar](10) NULL,
 	[TKNguoiNhap] [nvarchar](50) NULL,
 	[SLNhap] [float] NULL,
-	[DGNhap] [money] NULL,
-	[DaiLyN] [nvarchar](50) NULL,
+	[DGNhap] [int] NULL,
  CONSTRAINT [PK_NHAPKHO_CT] PRIMARY KEY CLUSTERED 
 (
 	[SoPhieuN] ASC,
@@ -741,3 +747,4 @@ GO
 ALTER TABLE [dbo].[NHAPKHO_CT] CHECK CONSTRAINT [FK_NHAPKHO_CT_KETOAN]
 GO
 
+Select * from XUATKHO
